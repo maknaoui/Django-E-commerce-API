@@ -41,10 +41,6 @@ class Customer(models.Model):
         choices=MEMBERSHIP_CHOICES,
         default=MEMBERSHIP_BRONZE
     )
-    class Meta:
-        indexes = [
-            models.Index(fields=['last_name', 'first_name'])
-        ]
     
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = 'P'
