@@ -5,5 +5,19 @@
         {% else %}
         <h1>Hello World!</h1>
         {% endif %}
+        <ul>
+            {% for order in orders %}
+                <li> {{ order.customer.first_name }} {{ order.customer.last_name }}: {{ order.placed_at }} 
+                    <ul>
+                        {% for item in order.orderitem_set.all %}
+                            <li> {{ item.product.title }} (x{{ item.quantity }}) </li>
+                        {% endfor %}
+                    </ul>
+
+                </li>
+            {% endfor %}
+        {% for product in products %}
+            <li> {{ product.title }}: {{ product.price }} </li>
+        {% endfor %}
     </body>
 </html>
